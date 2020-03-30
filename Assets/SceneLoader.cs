@@ -15,4 +15,8 @@ public class SceneLoader : MonoBehaviour {
 			SceneManager.LoadScene((int)SceneID.MainMenu);
 		}
 	}
+
+	public void ExitToDesktop(){
+		Application.Quit();
+	}
 }
