@@ -19,17 +19,19 @@ public class NumberWizard : MonoBehaviour {
 	void Start() {
 		max += 1;
         Random.InitState(System.DateTime.Now.Minute + System.DateTime.Now.Second);
-		guess = Random.Range((max / 2) - 100, (max / 2) + 100);
+		guess = (int)Random.Range((max / 2) - (max * 0.1f), (max / 2) + (max * 0.1f));
 		guessText.text = guess.ToString();
 	}
 	
 	public void Higher() {
-		min = guess;
+		if(min != max) {
+			min = guess + 1;
+		}
 		NextGuess();
 	}
 
 	public void Lower() {
-		max = guess + 1;
+		max = guess;
 		NextGuess();
 	}
 
